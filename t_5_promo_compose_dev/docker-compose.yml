@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+    db:
+        image: mysql:8.0.32
+        container_name: t_5_promo_db_dev
+        restart: unless-stopped
+        env_file:
+            - ./.env.db
+        volumes:
+            - ${DB_VOLUME}:/var/lib/postgresql/data
+        healthcheck:
+            test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+            timeout: 20s
+            retries: 10
+
+
+    t_5_promo_core:
+        image: vivazzi/t_5_promo_core_dev
+        container_name: t_5_promo_core_dev
+        build:
+            context: ..
+            dockerfile: dev.Dockerfile
+            args:
+                - PIPENV_PIPFILE=${PIPENV_PIPFILE}
+        command: pipenv run python manage.py runserver 0.0.0.0:8000
+        restart: unless-stopped
+        environment:
+            - PIPENV_PIPFILE=${PIPENV_PIPFILE}
+        env_file:
+            - ./.env.db
+            - ./.env.django
+        ports:
+            - "8000:8000"
+        depends_on:
+            db:
+                condition: service_healthy

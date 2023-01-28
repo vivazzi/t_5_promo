@@ -1,0 +1,53 @@
+@import "../vars";
+@import "../../utils";
+
+
+// Overrides
+.row {
+    --bs-gutter-x: #{px_to_rem(30)};
+}
+
+.container, .container-fluid, .container-xxl, .container-xl, .container-lg, .container-md, .container-sm {
+    --bs-gutter-x: #{px_to_rem(15)};
+}
+
+// fixme: need use .container {max-width: 1168px;}? mockup has maximum 1168px by width
+.container-fluid {max-width: 1168px;}  // bootstrap 5 has maximum 1344px by width
+
+
+// Common
+h1 {font-weight: 700;font-size: px_to_rem(56);margin-top: px_to_rem(90);margin-bottom:px_to_rem(30);line-height: px_to_rem(68);text-align: center;letter-spacing: 0.02rem;}
+h2 {font-weight: 700;font-size: px_to_rem(42);line-height: px_to_rem(52);letter-spacing: 0.02rem;}
+h3 {font-weight: 600;font-size: px_to_rem(14);line-height: px_to_rem(26);letter-spacing: 0.02rem;}
+
+// fixme: is it normally to increase font-size in h4?
+h4 {font-weight: 600;font-size: px_to_rem(20);line-height: px_to_rem(26);letter-spacing: 0.02rem;}
+
+div, p {font-family: 'Montserrat', sans-serif;}
+
+.small-text {font-weight: 400;font-size: px_to_rem(15);line-height: px_to_rem(30);letter-spacing: 0.02rem;}
+
+a {
+    color: $blue;text-decoration: none;
+
+    // fixme: warning: inconsistent style
+    &:hover {text-decoration: underline;}
+}
+
+.dark-mode {
+    background-color: $black;
+
+    a, p, span {color:$white;letter-spacing: 0.02rem;}
+
+    a {
+        text-decoration: none;
+
+        // fixme: warning: inconsistent style
+        &:hover {color: $light-grey;}
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {font-size: px_to_rem(36);margin-top: px_to_rem(45);margin-bottom:px_to_rem(15);line-height: px_to_rem(44);}
+    h2 {font-size: px_to_rem(20);line-height: px_to_rem(26);}
+}

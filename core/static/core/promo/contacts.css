@@ -1,0 +1,65 @@
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#contacts {
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+  padding-bottom: 90px;
+  gap: 30px;
+}
+#contacts .contacts-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#contacts .contacts-items {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#contacts .contacts-item {
+  display: flex;
+  flex-direction: column;
+}
+#contacts .contacts-item p {
+  margin: 0;
+}
+#contacts .contacts-social-networks {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+#contacts .telegram-icon {
+  color: #3483CB;
+}
+#contacts .telegram-icon:hover {
+  color: #327bbf;
+}
+#contacts .youtube-icon {
+  color: #FF342B;
+}
+#contacts .youtube-icon:hover {
+  color: #f23329;
+}
+#contacts .feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#contacts .has-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/*# sourceMappingURL=contacts.css.map */

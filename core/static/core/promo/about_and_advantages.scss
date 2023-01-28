@@ -1,0 +1,54 @@
+@import "vars";
+@import "../utils";
+
+
+// fixme: should I make 'about' and 'advantages' layout according to figma "auto layout"? In this block I use own layout (without flex)
+// --- ABOUT ---
+#about {
+    margin-bottom: px_to_rem(90);
+
+    p {
+        color:$grey;font-weight: 400;font-size: px_to_rem(18);line-height: px_to_rem(30);text-align: center;letter-spacing: 0.02rem;
+        margin-left: auto;margin-right: auto;
+        max-width: 751px;  // fixme: maybe use nice size? for example, 750px
+    }
+}
+
+
+// --- ADVANTAGES ---
+#advantages {
+    margin-bottom: px_to_rem(90);
+
+    .advantages-item {padding: 30px;display: flex;flex-direction: column;gap: 30px;}
+
+    .advantages-item-logo {
+        width: 64px;height: 64px;background-size: contain;margin-left: auto;margin-right: auto;
+
+        // fixme: for consistence with figma mockup I saved original icon names
+        &.advantages-item-logo-shuttle {background: url(./advantages/icons/fa6-solid_shuttle-space.svg) no-repeat;}
+        &.advantages-item-logo-telescope {background: url(./advantages/icons/ion_telescope.svg) no-repeat;}
+        &.advantages-item-logo-moon {background: url(./advantages/icons/bi_moon-stars-fill.svg) no-repeat;}
+        &.advantages-item-logo-medal {background: url(./advantages/icons/bxs_medal.svg) no-repeat;}
+    }
+
+    .advantages-item-description {text-align: center;}
+
+    $advantages-image-size: 457px;
+    .advantages-image {
+        background: url(./advantages/bg.jpg) 50% 50% no-repeat;background-size: cover;width:100%;max-width: $advantages-image-size;aspect-ratio:1;
+        box-shadow: 0 12px 24px rgba(0, 29, 86, 0.2);border-radius: 40px;
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    #about {
+        p {font-size: px_to_rem(16);line-height: px_to_rem(30);}
+    }
+
+    #advantages {
+        .advantages-col {margin-bottom: 35px;}
+        .advantages-item {padding: 10px 0 30px 0}
+        .advantages-image {margin-right: auto;}
+    }
+}

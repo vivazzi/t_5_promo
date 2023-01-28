@@ -1,0 +1,11 @@
+@import "../vars";
+@import "../../utils";
+
+
+.logo {
+    max-width: 120px;max-height: 34px;width: 100%;height: 100%;
+    color: $red!important; // fixme: maybe there is way to avoid !important. Now it is need to avoid the overriding from .dark-mode
+
+    // fixme: warning: inconsistent style
+    &:hover {color: $red-dark!important}
+}

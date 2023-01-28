@@ -1,0 +1,28 @@
+{% load thumbnail %}
+
+
+<div class="slider">
+    {# todo: optimize two loops to one #}
+    <div class="slider-for">
+        {% for slider_item in slider_items %}
+            {# todo: use srcset for the supporting retina devices. You can use the way in django-filer: filer/templatetags/filer_admin_tags.py:110 #}
+            <div class="slide">
+                {% with slider_item.image|thumbnail_url:'slider_item_image' as slider_item_image %}
+                    <a href="{{ slider_item_image }}" data-fancybox="gallery" data-thumb="{{ slider_item.image|thumbnail_url:'slider_item_thumb' }}">
+                        <img src="{{ slider_item_image }}" alt="{{ slider_item.title }}">
+                    </a>
+                {% endwith %}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="slider-nav">
+        {% for slider_item in slider_items %}
+            {# todo: use srcset for the supporting retina devices. You can use the way in django-filer: filer/templatetags/filer_admin_tags.py:110 #}
+            <div class="slide">
+                <div class="slide-img-wr">
+                    <div class="slide-img" style="background-image: url({{ slider_item.image|thumbnail_url:'slider_item_thumb' }})"></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

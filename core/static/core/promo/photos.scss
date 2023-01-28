@@ -1,0 +1,95 @@
+@import "vars";
+@import "../utils";
+
+
+.photos-wr {
+    position: relative;padding-top: 90px; padding-bottom: 60px;
+
+    .photos-bg {
+        background: $black url(./photos/bg.png) no-repeat 50% 50%;background-size: cover;
+        position: absolute;left:0;top:0;width: 100%;height: 100%;
+    }
+}
+
+#photos {
+    position: relative;z-index: 2;  // go to front
+
+    h2 {margin-bottom: px_to_rem(60);text-align: center;color: $white;position: relative;}
+
+    $slick-next-prev-width: 41px;
+    $slick-next-prev-height: 39px;
+    $slick-next-prev-offset: 9px;
+
+    .slider {
+        width: 100%;max-width: 1317px;margin-left: auto;margin-right: auto;padding-left: ($slick-next-prev-width + $slick-next-prev-offset);padding-right: ($slick-next-prev-width + $slick-next-prev-offset);
+    }
+
+    $slider-track-offset: 45;
+    $slider-track-extra-margin: 45;
+    .slider-for {
+        img {
+            margin-left: auto;margin-right: auto;width: 100%;max-width: 750px;aspect-ratio: 750/420;
+            border-radius: 40px;box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+            // workaround: slick slider has overflow: hidden in .slick-list tag,
+            // so we need use margin-bottom with extra margin for render shadow
+            margin-bottom: px_to_rem($slider-track-offset + $slider-track-extra-margin);
+
+            // fixme: warning: inconsistent style
+            transition: box-shadow .2s ease-in-out;
+            &:hover {box-shadow: 0 20px 50px rgba($white, 20%)}
+        }
+    }
+
+    $slider-slide-height: 165px;
+    .slider-nav {
+        margin-top: px_to_rem(-$slider-track-extra-margin);  // workaround: remove extra margin. See comment in .slider-for img
+        .slide {padding-left: 15px;padding-right:15px;height: $slider-slide-height;}
+
+        .slide-img-wr {display: flex;justify-items: center;height: 100%;}
+
+        .slide-img {
+            margin: auto;border-radius: 40px;width: 100%;max-width: $slider-slide-height;aspect-ratio: 1;cursor: pointer;
+            background-size: cover;background-position: 50%;
+        }
+        .slick-current .slide-img, .slide-img:hover {box-shadow: inset 0 0 0 10px $white;}
+
+
+        .slick-prev, .slick-next {
+            width: $slick-next-prev-width;height: $slick-next-prev-height;
+        }
+        .slick-prev {left: -($slick-next-prev-width + $slick-next-prev-offset)}
+        .slick-next {right: -($slick-next-prev-width + $slick-next-prev-offset)}
+        .slick-prev:before, .slick-next:before {
+            content: "";background: url(./components/slider/arrow_icon.svg) no-repeat;width: 100%;height: 100%;display: block;
+        }
+        .slick-next:before {transform: rotate(180deg);}
+    }
+}
+
+// need override max-width: 992px instead of using max-width: 767px, because we have breakpoint 992px on h2 in common.scss
+@media (max-width: 992px) {
+    #photos {
+        h2 {font-size: px_to_rem(30);}
+        .photos-wr {padding-top: 60px; padding-bottom: 44px;}
+    }
+}
+
+@media (max-width: 767px) {
+    #photos {
+        .slider {
+            padding-left: 0;padding-right: 0;
+
+            $slider-slide-height: 80px;
+            .slider-for {
+                img {aspect-ratio: 1;object-fit: cover;max-height: 340px;}
+            }
+            .slider-nav {
+                margin-left: -12px;margin-right: -12px;  // fill all width of container: 12px is default bootstrap .col width
+
+                .slide {padding-left: 5px;padding-right:5px;height: $slider-slide-height;}
+                .slide-img {max-width: $slider-slide-height;border-radius: 20px;}
+            }
+        }
+    }
+}

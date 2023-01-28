@@ -1,0 +1,35 @@
+@import "vars";
+@import "../utils";
+
+
+$header-offset-y: 23px;
+header {
+    padding-top:$header-offset-y;padding-bottom: $header-offset-y;display: flex;align-items: center;gap: 30px;
+
+    .header-logo {flex: none;}
+    .btn {flex: none;}
+}
+
+nav {
+    flex-grow: 1;
+
+    ul {list-style: none;display: flex;justify-content: center;gap: 45px;}
+
+    a {
+        text-transform: uppercase;font-weight: 600;line-height: px_to_rem(20);letter-spacing: 0.05rem;
+    }
+}
+
+.mobile-menu-btn, .header-dummy-placeholder {display: none;}
+
+@media (max-width: 992px) {
+    nav {display: none;}
+    .header-dummy-placeholder {display: block;flex-grow: 1;}
+
+    .mobile-menu-btn {
+        color: $red;cursor: pointer;display: block;
+
+        // fixme: warning: inconsistent style
+        &:hover {color: $red-dark;}
+    }
+}

@@ -1,0 +1,50 @@
+@import "vars";
+@import "../utils";
+
+
+#contacts {
+    display: flex;flex-direction: column;padding-top: 60px;padding-bottom: 90px;gap: 30px;
+
+    .contacts-col {display: flex;flex-direction: column;gap: 30px;}
+
+    .contacts-items {display: flex;flex-direction: column;gap: 18px;}
+    .contacts-item {
+        display: flex;flex-direction: column;
+
+        p {margin: 0;}
+    }
+
+    .contacts-social-networks {display: flex;align-items:center;gap: 15px;}
+
+    .telegram-icon {
+        color: #3483CB;
+
+        // fixme: warning: inconsistent style
+        &:hover {color: #327bbf;}
+    }
+
+    .youtube-icon {
+        color: #FF342B;
+
+        // fixme: warning: inconsistent style
+        &:hover {color: #f23329;}
+    }
+
+    .feedback-form {display: flex;flex-direction: column;gap: 30px;}
+    .has-questions {display: flex;flex-direction: column;gap: 7px;}
+
+    .google-maps {
+        width: 100%;min-height: 340px;height: 100%;
+
+        // fixme: warning: inconsistent style
+        border: 1px solid transparent;
+        &:hover {border-color: $black;}
+    }
+    .google-maps-mobile {display: none;}
+
+
+    @media (max-width: 767px) {
+        .google-maps-desktop {display: none;}
+        .google-maps-mobile {display: block;}
+    }
+}

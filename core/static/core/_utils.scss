@@ -1,0 +1,13 @@
+@use 'sass:math';
+
+@import "./init";
+
+
+@function strip_px($value) {
+  @return math.div($value, 1px);
+}
+
+// font-size matching (figma uses px)
+@function px_to_rem($value) {
+    @return math.div($value, strip_px($default-font-size)) + rem;
+}

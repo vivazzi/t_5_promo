@@ -1,0 +1,21 @@
+// todo: optimize styles
+
+@import "../init.scss";
+@import "../utils";
+
+@import "vars";
+
+
+// --- Components ---
+@import "./components/common.scss";
+@import "./components/logo.scss";
+@import "./components/btn.scss";
+@import "./components/forms.scss";
+
+
+// --- Sections ---
+@import "./header.scss";
+@import "./about_and_advantages.scss";
+@import "./photos.scss";
+@import "./contacts.scss";
+@import "./footer.scss";
