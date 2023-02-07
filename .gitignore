@@ -35,8 +35,8 @@ local
 /collect_static/*
 !/collect_static/placeholder
 
-/media_0/*
-!/media_0/placeholder
+/media/*
+!/media/placeholder
 
 
 .DS_Store
