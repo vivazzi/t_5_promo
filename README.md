@@ -19,8 +19,8 @@ You can find a task description in this repo: [docs/task_ru.md](docs/task_ru.md)
 
 ### Development
 
-1. Copy all files with environment variables from [docker_compose_dev/samples](t_5_promo_compose_dev/samples) to 
-   [docker_compose_dev](t_5_promo_compose_dev) without `.sample` suffixes and set values.
+1. Copy all files with environment variables from [t_5_promo_compose_dev/samples](t_5_promo_compose_dev/samples) to 
+   [t_5_promo_compose_dev](t_5_promo_compose_dev) without `.sample` suffixes and set values.
 
 2. Run:
 
